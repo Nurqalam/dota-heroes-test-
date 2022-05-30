@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		B5AE8AFD283D70F8004B8734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AFC283D70F8004B8734 /* AppDelegate.swift */; };
 		B5AE8AFF283D70F8004B8734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AFE283D70F8004B8734 /* SceneDelegate.swift */; };
-		B5AE8B01283D70F8004B8734 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B00283D70F8004B8734 /* ViewController.swift */; };
-		B5AE8B04283D70F8004B8734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5AE8B02283D70F8004B8734 /* Main.storyboard */; };
+		B5AE8B01283D70F8004B8734 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B00283D70F8004B8734 /* MainViewController.swift */; };
 		B5AE8B06283D70FA004B8734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AE8B05283D70FA004B8734 /* Assets.xcassets */; };
 		B5AE8B09283D70FA004B8734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5AE8B07283D70FA004B8734 /* LaunchScreen.storyboard */; };
+		B5AE8B4128452C95004B8734 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B4028452C95004B8734 /* HeroesViewController.swift */; };
+		B5AE8B432845303F004B8734 /* HeroesViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B422845303F004B8734 /* HeroesViewControllerCell.swift */; };
+		B5AE8B46284530A4004B8734 /* UIStackView + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B45284530A4004B8734 /* UIStackView + extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B5AE8AF9283D70F8004B8734 /* dota-heroes(test).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dota-heroes(test).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AE8AFC283D70F8004B8734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5AE8AFE283D70F8004B8734 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5AE8B00283D70F8004B8734 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B5AE8B03283D70F8004B8734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B5AE8B00283D70F8004B8734 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B5AE8B05283D70FA004B8734 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5AE8B08283D70FA004B8734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5AE8B0A283D70FA004B8734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5AE8B4028452C95004B8734 /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
+		B5AE8B422845303F004B8734 /* HeroesViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewControllerCell.swift; sourceTree = "<group>"; };
+		B5AE8B45284530A4004B8734 /* UIStackView + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,65 @@
 		B5AE8AFB283D70F8004B8734 /* dota-heroes(test) */ = {
 			isa = PBXGroup;
 			children = (
-				B5AE8AFC283D70F8004B8734 /* AppDelegate.swift */,
-				B5AE8AFE283D70F8004B8734 /* SceneDelegate.swift */,
-				B5AE8B00283D70F8004B8734 /* ViewController.swift */,
-				B5AE8B02283D70F8004B8734 /* Main.storyboard */,
-				B5AE8B05283D70FA004B8734 /* Assets.xcassets */,
-				B5AE8B07283D70FA004B8734 /* LaunchScreen.storyboard */,
-				B5AE8B0A283D70FA004B8734 /* Info.plist */,
+				B5AE8B4428453099004B8734 /* Extensions */,
+				B5AE8B3C28451FE4004B8734 /* Application */,
+				B5AE8B3F28452023004B8734 /* Models */,
+				B5AE8B3B28451FDE004B8734 /* Controllers */,
+				B5AE8B3D28451FFA004B8734 /* Views */,
+				B5AE8B3E28451FFF004B8734 /* Resources */,
 			);
 			path = "dota-heroes(test)";
+			sourceTree = "<group>";
+		};
+		B5AE8B3B28451FDE004B8734 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE8B00283D70F8004B8734 /* MainViewController.swift */,
+				B5AE8B4028452C95004B8734 /* HeroesViewController.swift */,
+				B5AE8B422845303F004B8734 /* HeroesViewControllerCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B5AE8B3C28451FE4004B8734 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE8AFC283D70F8004B8734 /* AppDelegate.swift */,
+				B5AE8AFE283D70F8004B8734 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B5AE8B3D28451FFA004B8734 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE8B07283D70FA004B8734 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5AE8B3E28451FFF004B8734 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE8B0A283D70FA004B8734 /* Info.plist */,
+				B5AE8B05283D70FA004B8734 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B5AE8B3F28452023004B8734 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B5AE8B4428453099004B8734 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE8B45284530A4004B8734 /* UIStackView + extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +181,6 @@
 			files = (
 				B5AE8B09283D70FA004B8734 /* LaunchScreen.storyboard in Resources */,
 				B5AE8B06283D70FA004B8734 /* Assets.xcassets in Resources */,
-				B5AE8B04283D70F8004B8734 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +191,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5AE8B01283D70F8004B8734 /* ViewController.swift in Sources */,
+				B5AE8B432845303F004B8734 /* HeroesViewControllerCell.swift in Sources */,
+				B5AE8B01283D70F8004B8734 /* MainViewController.swift in Sources */,
 				B5AE8AFD283D70F8004B8734 /* AppDelegate.swift in Sources */,
+				B5AE8B4128452C95004B8734 /* HeroesViewController.swift in Sources */,
 				B5AE8AFF283D70F8004B8734 /* SceneDelegate.swift in Sources */,
+				B5AE8B46284530A4004B8734 /* UIStackView + extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B5AE8B02283D70F8004B8734 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5AE8B03283D70F8004B8734 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B5AE8B07283D70FA004B8734 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,10 +337,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S8VC9ZSJXF;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "dota-heroes(test)/Info.plist";
+				INFOPLIST_FILE = "dota-heroes(test)/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -317,10 +364,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S8VC9ZSJXF;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "dota-heroes(test)/Info.plist";
+				INFOPLIST_FILE = "dota-heroes(test)/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

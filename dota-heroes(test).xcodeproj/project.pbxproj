@@ -11,13 +11,13 @@
 		B5AE8AFF283D70F8004B8734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AFE283D70F8004B8734 /* SceneDelegate.swift */; };
 		B5AE8B01283D70F8004B8734 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B00283D70F8004B8734 /* MainViewController.swift */; };
 		B5AE8B06283D70FA004B8734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AE8B05283D70FA004B8734 /* Assets.xcassets */; };
-		B5AE8B09283D70FA004B8734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5AE8B07283D70FA004B8734 /* LaunchScreen.storyboard */; };
 		B5AE8B4128452C95004B8734 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B4028452C95004B8734 /* HeroesViewController.swift */; };
 		B5AE8B432845303F004B8734 /* HeroesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B422845303F004B8734 /* HeroesCollectionViewCell.swift */; };
 		B5AE8B46284530A4004B8734 /* UIStackView + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B45284530A4004B8734 /* UIStackView + extension.swift */; };
 		B5AE8B7A284B8E4E004B8734 /* HeroesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B79284B8E4E004B8734 /* HeroesCollectionView.swift */; };
 		B5AE8B7D284B96EA004B8734 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B7C284B96EA004B8734 /* HeroModel.swift */; };
 		B5AE8B7F284B9A8A004B8734 /* UIImageView + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B7E284B9A8A004B8734 /* UIImageView + extension.swift */; };
+		B5AE8B8D284BDF10004B8734 /* DetailHeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B8C284BDF10004B8734 /* DetailHeroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,6 @@
 		B5AE8AFE283D70F8004B8734 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B5AE8B00283D70F8004B8734 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B5AE8B05283D70FA004B8734 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B5AE8B08283D70FA004B8734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5AE8B0A283D70FA004B8734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5AE8B4028452C95004B8734 /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
 		B5AE8B422845303F004B8734 /* HeroesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -34,6 +33,7 @@
 		B5AE8B79284B8E4E004B8734 /* HeroesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCollectionView.swift; sourceTree = "<group>"; };
 		B5AE8B7C284B96EA004B8734 /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 		B5AE8B7E284B9A8A004B8734 /* UIImageView + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + extension.swift"; sourceTree = "<group>"; };
+		B5AE8B8C284BDF10004B8734 /* DetailHeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +81,7 @@
 			children = (
 				B5AE8B00283D70F8004B8734 /* MainViewController.swift */,
 				B5AE8B4028452C95004B8734 /* HeroesViewController.swift */,
+				B5AE8B8C284BDF10004B8734 /* DetailHeroViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -99,7 +100,6 @@
 			children = (
 				B5AE8B7B284B8E51004B8734 /* Cells */,
 				B5AE8B79284B8E4E004B8734 /* HeroesCollectionView.swift */,
-				B5AE8B07283D70FA004B8734 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,7 +196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5AE8B09283D70FA004B8734 /* LaunchScreen.storyboard in Resources */,
 				B5AE8B06283D70FA004B8734 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +212,7 @@
 				B5AE8B7F284B9A8A004B8734 /* UIImageView + extension.swift in Sources */,
 				B5AE8B432845303F004B8734 /* HeroesCollectionViewCell.swift in Sources */,
 				B5AE8B01283D70F8004B8734 /* MainViewController.swift in Sources */,
+				B5AE8B8D284BDF10004B8734 /* DetailHeroViewController.swift in Sources */,
 				B5AE8AFD283D70F8004B8734 /* AppDelegate.swift in Sources */,
 				B5AE8B4128452C95004B8734 /* HeroesViewController.swift in Sources */,
 				B5AE8AFF283D70F8004B8734 /* SceneDelegate.swift in Sources */,
@@ -221,17 +221,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B5AE8B07283D70FA004B8734 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5AE8B08283D70FA004B8734 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B5AE8B0B283D70FA004B8734 /* Debug */ = {

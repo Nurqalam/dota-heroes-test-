@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+protocol SelectedHeroProtocol: AnyObject {
+    func selectHeroProtocol(indexPath: IndexPath)
+}
+
+
 class HeroesCollectionView: UICollectionView {
+    
+    weak var selectHeroDelegate: SelectedHeroProtocol?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -33,7 +40,7 @@ class HeroesCollectionView: UICollectionView {
 //MARK: - UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 extension HeroesCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        selectHeroDelegate?.selectHeroProtocol(indexPath: indexPath)
     }
 }
 
@@ -41,6 +48,6 @@ extension HeroesCollectionView: UICollectionViewDelegate {
 extension HeroesCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 5,
-                      height: 170)
+                      height: 150)
     }
 }

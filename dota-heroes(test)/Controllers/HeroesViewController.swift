@@ -25,7 +25,6 @@ class HeroesViewController: UIViewController {
         
         downloadJSON {
             self.collectionView.reloadData()
-            print("success")
         }
     }
     
@@ -37,9 +36,11 @@ class HeroesViewController: UIViewController {
     
     private func setDelegates() {
         collectionView.dataSource = self
+        collectionView.selectHeroDelegate = self
     }
     
 }
+
 
 
 //MARK: - URLSession
@@ -52,18 +53,34 @@ extension HeroesViewController {
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             if error == nil {
-                do {
-                    self.heroes = try JSONDecoder().decode([HeroModel].self, from: data!)
-                    DispatchQueue.main.async {
-                        completed()
+                if let data = data {
+                    do {
+                        self.heroes = try JSONDecoder().decode([HeroModel].self, from: data)
+                        DispatchQueue.main.async {
+                            completed()
+                        }
+                    } catch {
+                        print("error fetching data from api")
                     }
-                } catch {
-                    print("error fetching data from api")
                 }
             }
         }.resume()
     }
 }
+
+
+
+//MARK: - SelectedHeroProtocol
+extension HeroesViewController: SelectedHeroProtocol {
+    func selectHeroProtocol(indexPath: IndexPath) {
+        let detailsHeroVC = DetailHeroViewController()
+        let hero = heroes[indexPath.row]
+        detailsHeroVC.hero = hero
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.pushViewController(detailsHeroVC, animated: true)
+    }
+}
+
 
 
 //MARK: - UICollectionViewDataSource
@@ -89,9 +106,9 @@ extension HeroesViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
-    
 }
+
+
 
 //MARK: - setConstraints
 extension HeroesViewController {

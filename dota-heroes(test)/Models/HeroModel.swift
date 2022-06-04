@@ -11,4 +11,9 @@ import Foundation
 struct HeroModel: Decodable {
     let localized_name: String
     let img: String
+    let primary_attr: String
+    let attack_type: String
+    let base_health: Int
+    let base_mana: Int
+    let attack_range: Int
 }

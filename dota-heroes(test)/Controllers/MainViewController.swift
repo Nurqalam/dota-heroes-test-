@@ -74,8 +74,7 @@ class MainViewController: UIViewController {
     @objc private func enterScrnButtonPressed() {
         let vc = UINavigationController(rootViewController: HeroesViewController())
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-        
+        present(vc, animated: true)        
     }
 
 }

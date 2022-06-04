@@ -10,107 +10,98 @@ import UIKit
 
 
 class HeroesViewController: UIViewController {
+ 
+    private let collectionView = HeroesCollectionView(frame: .zero,
+                                                      collectionViewLayout: UICollectionViewFlowLayout())
     
-    private let tableView: UITableView = {
-        let tablView = UITableView()
-        tablView.register(HeroesViewControllerCell.self, forCellReuseIdentifier: "cell")
-        tablView.translatesAutoresizingMaskIntoConstraints = false
-        return tablView
-    }()
+    var heroes = [HeroModel]()
     
-    
-    private let searchController = UISearchController(searchResultsController: nil)
-    
-//    var albums = [Album]()
-    var timer: Timer?
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setDelegates()
         setConstraints()
-        setNavigationBar()
-        setupSearchController()
         
+        downloadJSON {
+            self.collectionView.reloadData()
+            print("success")
+        }
     }
     
-    
     private func setupViews() {
-        view.addSubview(tableView)
         title = "Dota Heroes"
-        
+        view.backgroundColor = .white
+        view.addSubview(collectionView)
     }
     
     private func setDelegates() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        searchController.searchBar.delegate = self
-    }
-    
-    private func setNavigationBar() {
-        title = "Albums"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.tintColor = .black
-        navigationItem.searchController = searchController
-        
-    }
-    
-    private func setupSearchController() {
-        searchController.searchBar.placeholder = "Search"
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.hidesSearchBarWhenScrolling = false
+        collectionView.dataSource = self
     }
     
 }
 
 
-// MARK: - UISearchBarDelegate
-extension HeroesViewController: UISearchBarDelegate {
-    
-}
-
-
-// MARK: - UITableViewDelegate
-extension HeroesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        70
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-}
-
-
-// MARK: - UITableViewDataSource
-extension HeroesViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HeroesViewControllerCell else {
-            return UITableViewCell()
+//MARK: - URLSession
+extension HeroesViewController {
+    func downloadJSON(completed: @escaping () -> ()) {
+        guard let url = URL(string: "https://api.opendota.com/api/heroStats") else {
+            return
         }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if error == nil {
+                do {
+                    self.heroes = try JSONDecoder().decode([HeroModel].self, from: data!)
+                    DispatchQueue.main.async {
+                        completed()
+                    }
+                } catch {
+                    print("error fetching data from api")
+                }
+            }
+        }.resume()
+    }
+}
+
+
+//MARK: - UICollectionViewDataSource
+extension HeroesViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return heroes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HeroesCollectionViewCell
+        else {
+            return UICollectionViewCell()
+        }
+        let hero = heroes[indexPath.row]
+        let imgUrl = "https://api.opendota.com" + hero.img
+        
+        cell.nameHeroLabel.text = hero.localized_name
+        cell.heroImageView.downloaded(from: imgUrl)
+        
+        cell.heroImageView.contentMode = .scaleToFill
+        cell.heroImageView.clipsToBounds = true
+        cell.heroImageView.layer.cornerRadius = 15
+        
         return cell
     }
+    
+    
 }
 
-
-// MARK: - setConstraints
+//MARK: - setConstraints
 extension HeroesViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
-
-    
 

@@ -10,7 +10,6 @@ import UIKit
 
 class DetailHeroViewController: UIViewController {
 
-    
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -28,7 +27,6 @@ class DetailHeroViewController: UIViewController {
     
     let heroAttributeLabel: UILabel = {
         let label = UILabel()
-        label.text = "HERO Atribute"
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +35,6 @@ class DetailHeroViewController: UIViewController {
     
     let heroAttackTypeLabel: UILabel = {
         let label = UILabel()
-        label.text = "HERO Attack type"
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +43,6 @@ class DetailHeroViewController: UIViewController {
     
     let heroAttackRangeLabel: UILabel = {
         let label = UILabel()
-        label.text = "HERO Attack type"
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +51,6 @@ class DetailHeroViewController: UIViewController {
     
     let heroHealthLabel: UILabel = {
         let label = UILabel()
-        label.text = "HERO health"
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +59,6 @@ class DetailHeroViewController: UIViewController {
 
     let heroManaLabel: UILabel = {
         let label = UILabel()
-        label.text = "HERO mana"
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -73,12 +67,6 @@ class DetailHeroViewController: UIViewController {
 
     var stackView = UIStackView()
     var hero: HeroModel?
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.heroImageView.layer.cornerRadius = heroImageView.frame.height / 2
-    }
     
     
     override func viewDidLoad() {

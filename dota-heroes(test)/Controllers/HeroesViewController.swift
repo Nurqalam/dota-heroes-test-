@@ -38,7 +38,6 @@ class HeroesViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.selectHeroDelegate = self
     }
-    
 }
 
 

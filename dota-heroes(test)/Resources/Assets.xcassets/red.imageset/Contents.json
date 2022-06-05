@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "cosmo-dota copy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "red.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

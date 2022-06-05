@@ -9,9 +9,17 @@ import Foundation
 import UIKit
 
 class DetailHeroViewController: UIViewController {
-
-    private let heroImageView: UIImageView = {
+    
+    let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    let heroImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.borderWidth = 10
+        imageView.layer.borderColor = UIColor.white.cgColor
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -75,11 +83,12 @@ class DetailHeroViewController: UIViewController {
         setupViews()
         setHeroDetails()
         setConstraints()
+        setBackgroundImages()
     }
     
     
     private func setupViews() {
-
+        view.addSubview(backgroundImageView)
         view.addSubview(heroImageView)
         view.addSubview(heroNameLabel)
         
@@ -98,7 +107,6 @@ class DetailHeroViewController: UIViewController {
     
     private func setHeroDetails() {
         guard let hero = hero else {
-            print("wrong")
             return
         }
         heroNameLabel.text = hero.localized_name
@@ -111,29 +119,47 @@ class DetailHeroViewController: UIViewController {
         let imgUrl = "https://api.opendota.com" + (hero.img )
         heroImageView.downloaded(from: imgUrl)
         heroImageView.contentMode = .scaleToFill
-        
-        
+        heroImageView.layer.cornerRadius = 160
+    }
+    
+    private func setBackgroundImages() {
+        guard let hero = hero else {
+            return
+        }
+
         if hero.primary_attr == "int" {
-            view.backgroundColor = #colorLiteral(red: 0.6498096366, green: 0.6673937673, blue: 0.9334683165, alpha: 1)
+            backgroundImageView.image = UIImage(named: "violet")
+            heroImageView.layer.borderColor = #colorLiteral(red: 0.6498096366, green: 0.6673937673, blue: 0.9334683165, alpha: 1)
         } else if hero.primary_attr == "agi" {
-            view.backgroundColor = #colorLiteral(red: 0.7425151357, green: 1, blue: 0.6936302665, alpha: 1)
+            backgroundImageView.image = UIImage(named: "green")
+            heroImageView.layer.borderColor = #colorLiteral(red: 0.7425151357, green: 1, blue: 0.6936302665, alpha: 1)
         } else if hero.primary_attr == "str" {
-            view.backgroundColor = #colorLiteral(red: 0.774218935, green: 0.2002253219, blue: 0.1581920951, alpha: 1)
+            backgroundImageView.image = UIImage(named: "red")
+            heroImageView.layer.borderColor = #colorLiteral(red: 0.774218935, green: 0.2002253219, blue: 0.1581920951, alpha: 1)
         } else {
-            view.backgroundColor = .white
+            heroImageView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
 }
 
 
+
 //MARK: - setConstraints()
 extension DetailHeroViewController {
     private func setConstraints() {
+        
         NSLayoutConstraint.activate([
-            heroImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            heroImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
-            heroImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35),
-            heroImageView.heightAnchor.constraint(equalToConstant: 340)
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            heroImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            heroImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            heroImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            heroImageView.heightAnchor.constraint(equalToConstant: 320)
         ])
         
         NSLayoutConstraint.activate([

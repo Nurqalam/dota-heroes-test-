@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
     
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "dota1")
+        imageView.image = UIImage(named: "dota_stars")
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -19,21 +19,35 @@ class MainViewController: UIViewController {
     
     private let enterLabel: UILabel = {
         let label = UILabel()
-        label.text = "Dota Heroes Library"
-        label.font = .boldSystemFont(ofSize: 45)
-        label.textColor = #colorLiteral(red: 0.09808254987, green: 0.26281178, blue: 0.2842366695, alpha: 1)
+        label.text = "Dota 2 Library"
+        label.font = .boldSystemFont(ofSize: 55)
+        label.textColor = UIColor(named: "Color-pink")
         label.numberOfLines = 0
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let enterScrnButton: UIButton = {
+    private let enterHeroesScrnButton: UIButton = {
         let button = UIButton()
-        let color = #colorLiteral(red: 0.09808254987, green: 0.26281178, blue: 0.2842366695, alpha: 1)
+        let color = UIColor.white
         button.setTitle("Show Dota Heroes", for: .normal)
         button.titleLabel?.font = UIFont(name: "Avenir Book", size: 25)
-        button.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.5227718566, green: 0.2400346954, blue: 0.720040909, alpha: 1)
+        button.setTitleColor(color, for: .normal)
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderWidth = 4
+        button.layer.cornerRadius = 12
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let enterTeamsScrnButton: UIButton = {
+        let button = UIButton()
+        let color = UIColor.white
+        button.setTitle("Show Dota Teams", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Avenir Book", size: 25)
+        button.backgroundColor = #colorLiteral(red: 0.03788266684, green: 0.5028772036, blue: 0.720040909, alpha: 1)
         button.setTitleColor(color, for: .normal)
         button.layer.borderColor = UIColor.gray.cgColor
         button.layer.borderWidth = 4
@@ -46,8 +60,9 @@ class MainViewController: UIViewController {
         let label = UILabel()
         label.text = "produced by Valve 2022"
         label.font = UIFont(name: "Apple SD Gothic Neo", size: 16)
-        label.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        label.textColor = .white
         label.numberOfLines = 0
+        label.alpha = 0.5
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -64,18 +79,27 @@ class MainViewController: UIViewController {
     
     private func setupViews() {
         view.addSubview(backgroundImageView)
-        view.addSubview(enterScrnButton)
+        view.addSubview(enterHeroesScrnButton)
+        view.addSubview(enterTeamsScrnButton)
         view.addSubview(enterLabel)
         view.addSubview(producedLabel)
         
-        enterScrnButton.addTarget(self, action: #selector(enterScrnButtonPressed), for: .touchUpInside)
+        enterHeroesScrnButton.addTarget(self, action: #selector(enterHeroesScrnButtonPressed), for: .touchUpInside)
+        enterTeamsScrnButton.addTarget(self, action: #selector(enterTeamsScrnButtonPressed), for: .touchUpInside)
     }
 
-    @objc private func enterScrnButtonPressed() {
+    @objc private func enterHeroesScrnButtonPressed() {
         let vc = UINavigationController(rootViewController: HeroesViewController())
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)        
     }
+    
+    @objc private func enterTeamsScrnButtonPressed() {
+        let vc = UINavigationController(rootViewController: TeamsViewController())
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+
 }
 
 
@@ -91,21 +115,28 @@ extension MainViewController {
         
         NSLayoutConstraint.activate([
             enterLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            enterLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 125),
+            enterLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -250),
             enterLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
             enterLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45)
         ])
         
         NSLayoutConstraint.activate([
-            enterScrnButton.centerXAnchor.constraint(equalTo: backgroundImageView.centerXAnchor),
-            enterScrnButton.centerYAnchor.constraint(equalTo: backgroundImageView.centerYAnchor),
-            enterScrnButton.widthAnchor.constraint(equalToConstant: 250),
-            enterScrnButton.heightAnchor.constraint(equalToConstant: 50)
+            enterHeroesScrnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            enterHeroesScrnButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+            enterHeroesScrnButton.widthAnchor.constraint(equalToConstant: 250),
+            enterHeroesScrnButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            enterTeamsScrnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            enterTeamsScrnButton.topAnchor.constraint(equalTo: enterHeroesScrnButton.bottomAnchor, constant: 25),
+            enterTeamsScrnButton.widthAnchor.constraint(equalToConstant: 250),
+            enterTeamsScrnButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         NSLayoutConstraint.activate([
             producedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            producedLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -45)
+            producedLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25)
         ])
     }
 }

@@ -32,11 +32,25 @@ class TeamsViewController: UIViewController {
         title = "Dota Teams"
         view.backgroundColor = .white
         view.addSubview(collectionView)
+        
+        let rightBtn = UIBarButtonItem(image: UIImage(systemName: "arrow.uturn.backward.circle.fill"),
+                                       style: .plain,
+                                       target: self,
+                                       action: #selector(exitButtonPressed))
+        
+        self.navigationItem.rightBarButtonItem = rightBtn
+        navigationController?.navigationBar.tintColor = .black
     }
     
     private func setDelegates() {
         collectionView.dataSource = self
         collectionView.selectTeamDelegate = self
+    }
+    
+    @objc private func exitButtonPressed() {
+        let vc = UINavigationController(rootViewController: MainViewController())
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 
@@ -72,7 +86,10 @@ extension TeamsViewController {
 //MARK: - UICollectionViewDataSource
 extension TeamsViewController: SelectedTeamProtocol {
     func selectTeamProtocol(indexPath: IndexPath) {
-        print(indexPath)
+        let detailsTeamVC = DetailTeamViewController()
+        let team = teams[indexPath.row]
+        detailsTeamVC.team = team
+        navigationController?.pushViewController(detailsTeamVC, animated: true)
     }
 }
 
@@ -84,19 +101,23 @@ extension TeamsViewController: UICollectionViewDataSource {
         return teams.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TeamsCollectionViewCell
         else {
             return UICollectionViewCell()
         }
         
+
         let team = teams[indexPath.row]
+        let nologo = "https://yt3.ggpht.com/ytc/AKedOLS684LcSvl5yHXhtJMoAYRF3WTfqBJVYdBidBgw=s900-c-k-c0x00ffffff-no-rj"
         
         if let imgUrl = team.logo_url {
             cell.nameTeamLabel.text = team.name
             cell.teamImageView.downloaded(from: imgUrl)
         } else {
-            cell.teamImageView.image = UIImage(named: "nologo")
+            cell.teamImageView.downloaded(from: nologo)
+            cell.nameTeamLabel.text = "No name"
         }
         return cell
     }

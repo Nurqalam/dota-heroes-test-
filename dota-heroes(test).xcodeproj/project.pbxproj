@@ -22,6 +22,7 @@
 		B5AE8B93284CAE4F004B8734 /* TeamsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B92284CAE4F004B8734 /* TeamsCollectionView.swift */; };
 		B5AE8B95284CAE59004B8734 /* TeamsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B94284CAE59004B8734 /* TeamsCollectionViewCell.swift */; };
 		B5AE8B97284CAED2004B8734 /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B96284CAED2004B8734 /* TeamModel.swift */; };
+		B5AE8B99284CEB98004B8734 /* DetailTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8B98284CEB98004B8734 /* DetailTeamViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B5AE8B92284CAE4F004B8734 /* TeamsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCollectionView.swift; sourceTree = "<group>"; };
 		B5AE8B94284CAE59004B8734 /* TeamsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5AE8B96284CAED2004B8734 /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
+		B5AE8B98284CEB98004B8734 /* DetailTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				B5AE8B4028452C95004B8734 /* HeroesViewController.swift */,
 				B5AE8B90284CADF9004B8734 /* TeamsViewController.swift */,
 				B5AE8B8C284BDF10004B8734 /* DetailHeroViewController.swift */,
+				B5AE8B98284CEB98004B8734 /* DetailTeamViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				B5AE8B93284CAE4F004B8734 /* TeamsCollectionView.swift in Sources */,
 				B5AE8B7A284B8E4E004B8734 /* HeroesCollectionView.swift in Sources */,
 				B5AE8B7D284B96EA004B8734 /* HeroModel.swift in Sources */,
+				B5AE8B99284CEB98004B8734 /* DetailTeamViewController.swift in Sources */,
 				B5AE8B97284CAED2004B8734 /* TeamModel.swift in Sources */,
 				B5AE8B7F284B9A8A004B8734 /* UIImageView + extension.swift in Sources */,
 				B5AE8B432845303F004B8734 /* HeroesCollectionViewCell.swift in Sources */,

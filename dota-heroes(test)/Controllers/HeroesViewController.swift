@@ -32,11 +32,25 @@ class HeroesViewController: UIViewController {
         title = "Dota Heroes"
         view.backgroundColor = .white
         view.addSubview(collectionView)
+        
+        let rightBtn = UIBarButtonItem(image: UIImage(systemName: "arrow.uturn.backward.circle.fill"),
+                                       style: .plain,
+                                       target: self,
+                                       action: #selector(exitButtonPressed))
+        
+        self.navigationItem.rightBarButtonItem = rightBtn
+        navigationController?.navigationBar.tintColor = .black
     }
-    
+        
     private func setDelegates() {
         collectionView.dataSource = self
         collectionView.selectHeroDelegate = self
+    }
+    
+    @objc private func exitButtonPressed() {
+        let vc = UINavigationController(rootViewController: MainViewController())
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 
@@ -75,7 +89,6 @@ extension HeroesViewController: SelectedHeroProtocol {
         let detailsHeroVC = DetailHeroViewController()
         let hero = heroes[indexPath.row]
         detailsHeroVC.hero = hero
-        navigationController?.navigationBar.tintColor = .black
         navigationController?.pushViewController(detailsHeroVC, animated: true)
     }
 }

@@ -28,15 +28,3 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
-
-extension UIImageView {
-    public func maskCircle(anyImage: UIImage) {
-        self.layer.borderWidth = 5
-        self.layer.borderColor = UIColor.white.cgColor
-        self.contentMode = .scaleAspectFill
-        self.layer.cornerRadius = self.frame.height / 2
-        self.layer.masksToBounds = false
-        self.clipsToBounds = true
-        self.image = anyImage
-    }
-}

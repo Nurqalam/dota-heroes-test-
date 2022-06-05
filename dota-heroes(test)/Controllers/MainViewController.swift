@@ -88,6 +88,7 @@ class MainViewController: UIViewController {
         enterTeamsScrnButton.addTarget(self, action: #selector(enterTeamsScrnButtonPressed), for: .touchUpInside)
     }
 
+    
     @objc private func enterHeroesScrnButtonPressed() {
         let vc = UINavigationController(rootViewController: HeroesViewController())
         vc.modalPresentationStyle = .fullScreen
@@ -99,7 +100,6 @@ class MainViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
-
 }
 
 

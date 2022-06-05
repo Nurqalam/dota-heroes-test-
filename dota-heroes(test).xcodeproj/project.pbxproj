@@ -98,8 +98,8 @@
 		B5AE8B3D28451FFA004B8734 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B5AE8B7B284B8E51004B8734 /* Cells */,
 				B5AE8B79284B8E4E004B8734 /* HeroesCollectionView.swift */,
+				B5AE8B422845303F004B8734 /* HeroesCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,14 +128,6 @@
 				B5AE8B7C284B96EA004B8734 /* HeroModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		B5AE8B7B284B8E51004B8734 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				B5AE8B422845303F004B8734 /* HeroesCollectionViewCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
